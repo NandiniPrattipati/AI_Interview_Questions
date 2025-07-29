@@ -546,13 +546,16 @@ const InterviewerDashboard = () => {
                         <SelectValue placeholder="Choose job title" />
                       </SelectTrigger>
                       <SelectContent className="max-h-60 overflow-y-auto">
-                        {filteredJobTitles.map((title) => (
-                          <SelectItem key={title} value={title}>
-                            {title}
+                        {filteredJobTitles.length > 0 ? (
+                          filteredJobTitles.map((title) => (
+                            <SelectItem key={title} value={title}>
+                              {title}
+                            </SelectItem>
+                          ))
+                        ) : (
+                          <SelectItem value="" disabled>
+                            No job titles found
                           </SelectItem>
-                        ))}
-                        {filteredJobTitles.length === 0 && (
-                          <div className="px-2 py-1.5 text-sm text-slate-500">No job titles found</div>
                         )}
                       </SelectContent>
                     </Select>

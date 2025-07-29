@@ -554,13 +554,16 @@ const JobSeekerDashboard = () => {
                         <SelectValue placeholder="Choose a role" />
                       </SelectTrigger>
                       <SelectContent className="max-h-60 overflow-y-auto">
-                        {filteredRoles.map((role) => (
-                          <SelectItem key={role} value={role}>
-                            {role}
+                        {filteredRoles.length > 0 ? (
+                          filteredRoles.map((role) => (
+                            <SelectItem key={role} value={role}>
+                              {role}
+                            </SelectItem>
+                          ))
+                        ) : (
+                          <SelectItem value="" disabled>
+                            No roles found
                           </SelectItem>
-                        ))}
-                        {filteredRoles.length === 0 && (
-                          <div className="px-2 py-1.5 text-sm text-slate-500">No roles found</div>
                         )}
                       </SelectContent>
                     </Select>

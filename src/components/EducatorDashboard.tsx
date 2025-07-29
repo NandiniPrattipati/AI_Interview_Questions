@@ -575,13 +575,16 @@ const EducatorDashboard = () => {
                         <SelectValue placeholder="Choose topic" />
                       </SelectTrigger>
                       <SelectContent className="max-h-60 overflow-y-auto">
-                        {filteredTopics.map((topic) => (
-                          <SelectItem key={topic} value={topic}>
-                            {topic}
+                        {filteredTopics.length > 0 ? (
+                          filteredTopics.map((topic) => (
+                            <SelectItem key={topic} value={topic}>
+                              {topic}
+                            </SelectItem>
+                          ))
+                        ) : (
+                          <SelectItem value="No topics found" disabled>
+                            No topics found
                           </SelectItem>
-                        ))}
-                        {filteredTopics.length === 0 && (
-                          <div className="px-2 py-1.5 text-sm text-slate-500">No topics found</div>
                         )}
                       </SelectContent>
                     </Select>
